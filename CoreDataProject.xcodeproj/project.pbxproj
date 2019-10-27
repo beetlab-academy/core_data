@@ -11,19 +11,46 @@
 		116030AE2365D33000081DDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116030AD2365D33000081DDE /* Assets.xcassets */; };
 		116030B12365D33000081DDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116030B02365D33000081DDE /* Preview Assets.xcassets */; };
 		116030B42365D33000081DDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116030B22365D33000081DDE /* LaunchScreen.storyboard */; };
+		116030C32365D4E700081DDE /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116030C22365D4E700081DDE /* CoreDataTests.swift */; };
+		116030CD2365D54000081DDE /* AppStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116030CC2365D54000081DDE /* AppStorageService.swift */; };
+		116030CF2365D61000081DDE /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116030CE2365D61000081DDE /* CoreDataService.swift */; };
+		116030D22365D66A00081DDE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 116030D02365D66A00081DDE /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		116030C52365D4E700081DDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1160309C2365D33000081DDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 116030A32365D33000081DDE;
+			remoteInfo = CoreData;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		116030A42365D33000081DDE /* CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		116030A42365D33000081DDE /* CoreDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116030A72365D33000081DDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116030AD2365D33000081DDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		116030B02365D33000081DDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		116030B32365D33000081DDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		116030B52365D33000081DDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		116030C02365D4E700081DDE /* CoreDataProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		116030C22365D4E700081DDE /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		116030C42365D4E700081DDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		116030CC2365D54000081DDE /* AppStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageService.swift; sourceTree = "<group>"; };
+		116030CE2365D61000081DDE /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		116030D12365D66A00081DDE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		116030A12365D33000081DDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116030BD2365D4E700081DDE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				116030A62365D33000081DDE /* CoreData */,
+				116030C12365D4E700081DDE /* CoreDataTests */,
 				116030A52365D33000081DDE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,7 +72,8 @@
 		116030A52365D33000081DDE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				116030A42365D33000081DDE /* CoreData.app */,
+				116030A42365D33000081DDE /* CoreDataProject.app */,
+				116030C02365D4E700081DDE /* CoreDataProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,6 +81,7 @@
 		116030A62365D33000081DDE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				116030BB2365D4A000081DDE /* App Storage Service */,
 				116030A72365D33000081DDE /* AppDelegate.swift */,
 				116030AD2365D33000081DDE /* Assets.xcassets */,
 				116030B22365D33000081DDE /* LaunchScreen.storyboard */,
@@ -69,12 +99,47 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		116030BB2365D4A000081DDE /* App Storage Service */ = {
+			isa = PBXGroup;
+			children = (
+				116030CB2365D50D00081DDE /* Implementation */,
+				116030CA2365D50600081DDE /* Interface */,
+			);
+			path = "App Storage Service";
+			sourceTree = "<group>";
+		};
+		116030C12365D4E700081DDE /* CoreDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				116030C22365D4E700081DDE /* CoreDataTests.swift */,
+				116030C42365D4E700081DDE /* Info.plist */,
+			);
+			path = CoreDataTests;
+			sourceTree = "<group>";
+		};
+		116030CA2365D50600081DDE /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				116030CC2365D54000081DDE /* AppStorageService.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		116030CB2365D50D00081DDE /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				116030CE2365D61000081DDE /* CoreDataService.swift */,
+				116030D02365D66A00081DDE /* DataModel.xcdatamodeld */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		116030A32365D33000081DDE /* CoreData */ = {
+		116030A32365D33000081DDE /* CoreDataProject */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 116030B82365D33000081DDE /* Build configuration list for PBXNativeTarget "CoreData" */;
+			buildConfigurationList = 116030B82365D33000081DDE /* Build configuration list for PBXNativeTarget "CoreDataProject" */;
 			buildPhases = (
 				116030A02365D33000081DDE /* Sources */,
 				116030A12365D33000081DDE /* Frameworks */,
@@ -84,10 +149,28 @@
 			);
 			dependencies = (
 			);
-			name = CoreData;
+			name = CoreDataProject;
 			productName = CoreData;
-			productReference = 116030A42365D33000081DDE /* CoreData.app */;
+			productReference = 116030A42365D33000081DDE /* CoreDataProject.app */;
 			productType = "com.apple.product-type.application";
+		};
+		116030BF2365D4E700081DDE /* CoreDataProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 116030C72365D4E700081DDE /* Build configuration list for PBXNativeTarget "CoreDataProjectTests" */;
+			buildPhases = (
+				116030BC2365D4E700081DDE /* Sources */,
+				116030BD2365D4E700081DDE /* Frameworks */,
+				116030BE2365D4E700081DDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				116030C62365D4E700081DDE /* PBXTargetDependency */,
+			);
+			name = CoreDataProjectTests;
+			productName = CoreDataTests;
+			productReference = 116030C02365D4E700081DDE /* CoreDataProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -102,9 +185,13 @@
 					116030A32365D33000081DDE = {
 						CreatedOnToolsVersion = 11.0;
 					};
+					116030BF2365D4E700081DDE = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 116030A32365D33000081DDE;
+					};
 				};
 			};
-			buildConfigurationList = 1160309F2365D33000081DDE /* Build configuration list for PBXProject "CoreData" */;
+			buildConfigurationList = 1160309F2365D33000081DDE /* Build configuration list for PBXProject "CoreDataProject" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,7 +204,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				116030A32365D33000081DDE /* CoreData */,
+				116030A32365D33000081DDE /* CoreDataProject */,
+				116030BF2365D4E700081DDE /* CoreDataProjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -133,6 +221,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		116030BE2365D4E700081DDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -141,10 +236,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				116030A82365D33000081DDE /* AppDelegate.swift in Sources */,
+				116030D22365D66A00081DDE /* DataModel.xcdatamodeld in Sources */,
+				116030CF2365D61000081DDE /* CoreDataService.swift in Sources */,
+				116030CD2365D54000081DDE /* AppStorageService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		116030BC2365D4E700081DDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				116030C32365D4E700081DDE /* CoreDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		116030C62365D4E700081DDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 116030A32365D33000081DDE /* CoreDataProject */;
+			targetProxy = 116030C52365D4E700081DDE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		116030B22365D33000081DDE /* LaunchScreen.storyboard */ = {
@@ -310,10 +424,48 @@
 			};
 			name = Release;
 		};
+		116030C82365D4E700081DDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoreDataTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Beetlab.CoreDataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreDataProject.app/CoreDataProject";
+			};
+			name = Debug;
+		};
+		116030C92365D4E700081DDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoreDataTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Beetlab.CoreDataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreDataProject.app/CoreDataProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1160309F2365D33000081DDE /* Build configuration list for PBXProject "CoreData" */ = {
+		1160309F2365D33000081DDE /* Build configuration list for PBXProject "CoreDataProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				116030B62365D33000081DDE /* Debug */,
@@ -322,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		116030B82365D33000081DDE /* Build configuration list for PBXNativeTarget "CoreData" */ = {
+		116030B82365D33000081DDE /* Build configuration list for PBXNativeTarget "CoreDataProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				116030B92365D33000081DDE /* Debug */,
@@ -331,7 +483,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		116030C72365D4E700081DDE /* Build configuration list for PBXNativeTarget "CoreDataProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116030C82365D4E700081DDE /* Debug */,
+				116030C92365D4E700081DDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		116030D02365D66A00081DDE /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				116030D12365D66A00081DDE /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 116030D12365D66A00081DDE /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1160309C2365D33000081DDE /* Project object */;
 }
