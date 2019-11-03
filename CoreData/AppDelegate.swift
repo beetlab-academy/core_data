@@ -11,6 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let service = CoreDataService()
+        service.update(Post(id: "", url: URL(string: "https://google.com")!, isLiked: false))
+        service.loadPosts()
+
         // Override point for customization after application launch.
         return true
     }
