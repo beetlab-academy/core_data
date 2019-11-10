@@ -16,6 +16,7 @@ class Mapper {
 }
 
 class CoreDataService: NSObject {
+    private let contextsQueue = DispatchQueue(label: "coredata.contexts")
     private let mapper = Mapper()
     private let persistentCOntainer = NSPersistentContainer(name: "DataModel")
     private lazy var controller: NSFetchedResultsController<PostEntity> = {
@@ -94,13 +95,12 @@ extension CoreDataService: AppStorageService {
 
     func update(_ post: Post) {
         persistentCOntainer.viewContext.automaticallyMergesChangesFromParent = true
-        persistentCOntainer.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+        persistentCOntainer.viewContext.mergePolicy = NSMergePolicy.overwrite
 
         let context = persistentCOntainer.newBackgroundContext()
         let fetchRequest: NSFetchRequest<PostEntity> = PostEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id=%d", post.id)
-        
-        context.perform {
+        contextsQueue.async(flags: .barrier) {
             do {
                 guard let postEntity = try context.fetch(fetchRequest).first else {
                     print("create")
@@ -124,12 +124,12 @@ extension CoreDataService: AppStorageService {
                 postEntity.isLiked = post.isLiked
                 
                 try context.save()
-
-                
             } catch {
                 print(error)
             }
         }
+       // context.perform {
+       // }
         
     }
     

@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         service.update(Post(id: 12, url: URL(string: "https://google.com")!, isLiked: false))
-//        service.update(Post(id: 12, url: URL(string: "https://google.com")!, isLiked: true))
-//        service.update(Post(id: 12, url: URL(string: "sef")!, isLiked: true))
+        service.update(Post(id: 12, url: URL(string: "https://google.com")!, isLiked: true))
+        service.update(Post(id: 12, url: URL(string: "sef")!, isLiked: true))
 //        service.loadPosts()
 
         // Override point for customization after application launch.
