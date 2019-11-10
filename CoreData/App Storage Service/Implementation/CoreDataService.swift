@@ -9,12 +9,19 @@
 import Foundation
 import CoreData
 
+class Mapper {
+    func map(from: PostEntity) -> Post {
+        return Post(id: Int(from.id), url: URL(string: from.url ?? "")!, isLiked: from.isLiked)
+    }
+}
+
 class CoreDataService: NSObject {
+    private let mapper = Mapper()
     private let persistentCOntainer = NSPersistentContainer(name: "DataModel")
     private lazy var controller: NSFetchedResultsController<PostEntity> = {
         let fetchRequest: NSFetchRequest<PostEntity> = PostEntity.fetchRequest()
 //        fetchRequest.predicate = NSPredicate(format: "url > %@", "fgjfgj")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "url", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: persistentCOntainer.viewContext,
                                              sectionNameKeyPath: nil,
@@ -29,7 +36,7 @@ class CoreDataService: NSObject {
         super.init()
         
         try? controller.performFetch()
-
+        print("objects = \(controller.fetchedObjects?.count)")
         
     }
 }
@@ -44,7 +51,11 @@ extension CoreDataService: NSFetchedResultsControllerDelegate {
                     at indexPath: IndexPath?,
                     for type: NSFetchedResultsChangeType,
                     newIndexPath: IndexPath?) {
+        
+        guard let postEntity = anObject as? PostEntity else { return }
+
         switch type {
+                        
         case .delete:
             print("delete \(anObject)")
 
@@ -61,8 +72,8 @@ extension CoreDataService: NSFetchedResultsControllerDelegate {
 
             break
         }
-        subscribers.forEach { $0.postChanged(Post(id: "", url: URL(string: "https://sdfsg")!, isLiked: true)) }
         
+        subscribers.forEach { $0.postChanged(mapper.map(from: postEntity)) }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -72,7 +83,6 @@ extension CoreDataService: NSFetchedResultsControllerDelegate {
 
 extension CoreDataService: AppStorageService {
     func update(_ author: Author) {
-        
         let entityDescription = NSEntityDescription.entity(forEntityName: "Author",
                                                            in: persistentCOntainer.viewContext)!
         
@@ -84,18 +94,43 @@ extension CoreDataService: AppStorageService {
 
     func update(_ post: Post) {
         persistentCOntainer.viewContext.automaticallyMergesChangesFromParent = true
+        persistentCOntainer.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
 
         let context = persistentCOntainer.newBackgroundContext()
-//        persistentCOntainer.performBackgroundTask { context in
-            let entityDescription = NSEntityDescription.entity(forEntityName: "PostEntity",
-                                                               in: context)!
-            
-            let entity = PostEntity(entity: entityDescription,
-                                    insertInto: context)
-            
-            entity.url = "swrgegr"
-            try? context.save()
-//        }
+        let fetchRequest: NSFetchRequest<PostEntity> = PostEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id=%d", post.id)
+        
+        context.perform {
+            do {
+                guard let postEntity = try context.fetch(fetchRequest).first else {
+                    print("create")
+                    let entityDescription = NSEntityDescription.entity(forEntityName: "PostEntity",
+                                                                       in: context)!
+                    
+                    let entity = PostEntity(entity: entityDescription,
+                                            insertInto: context)
+                    
+                    entity.id = Int64(post.id)
+                    entity.url = "swrgegr"
+                    entity.isLiked = false
+                    
+                    try context.save()
+
+                    return
+                }
+                
+                print("update")
+                postEntity.url = post.url.absoluteString
+                postEntity.isLiked = post.isLiked
+                
+                try context.save()
+
+                
+            } catch {
+                print(error)
+            }
+        }
+        
     }
     
     func loadPosts() -> [Post] {

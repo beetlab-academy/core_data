@@ -9,7 +9,7 @@
 import Foundation
 
 struct Post {
-    let id: String
+    let id: Int
     let url: URL
     let isLiked: Bool
 }

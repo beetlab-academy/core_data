@@ -19,6 +19,7 @@
 		118D7E41236EF92F00E9D27D /* AppStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116030CC2365D54000081DDE /* AppStorageService.swift */; };
 		118D7E43236EFC4F00E9D27D /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D7E42236EFC4F00E9D27D /* Mocker.swift */; };
 		118D7E44236EFCD400E9D27D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 116030D02365D66A00081DDE /* DataModel.xcdatamodeld */; };
+		11C9FF9923783B6700FF0A6E /* MigrationV1ToV2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 11C9FF9823783B6700FF0A6E /* MigrationV1ToV2.xcmappingmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		116030CE2365D61000081DDE /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		116030D12365D66A00081DDE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		118D7E42236EFC4F00E9D27D /* Mocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
+		11C9FF9723783AF000FF0A6E /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		11C9FF9823783B6700FF0A6E /* MigrationV1ToV2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MigrationV1ToV2.xcmappingmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 			children = (
 				116030CE2365D61000081DDE /* CoreDataService.swift */,
 				116030D02365D66A00081DDE /* DataModel.xcdatamodeld */,
+				11C9FF9823783B6700FF0A6E /* MigrationV1ToV2.xcmappingmodel */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -245,6 +249,7 @@
 				116030A82365D33000081DDE /* AppDelegate.swift in Sources */,
 				116030D22365D66A00081DDE /* DataModel.xcdatamodeld in Sources */,
 				116030CF2365D61000081DDE /* CoreDataService.swift in Sources */,
+				11C9FF9923783B6700FF0A6E /* MigrationV1ToV2.xcmappingmodel in Sources */,
 				116030CD2365D54000081DDE /* AppStorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,9 +513,10 @@
 		116030D02365D66A00081DDE /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				11C9FF9723783AF000FF0A6E /* DataModel 2.xcdatamodel */,
 				116030D12365D66A00081DDE /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 116030D12365D66A00081DDE /* DataModel.xcdatamodel */;
+			currentVersion = 11C9FF9723783AF000FF0A6E /* DataModel 2.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
